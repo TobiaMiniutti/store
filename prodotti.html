@@ -101,7 +101,9 @@
     box-shadow: 0 16px 40px rgba(0,0,0,0.06), inset 0 0 0 1px rgba(0,0,0,0.05);
     padding: 1.3rem 1.3rem 2.2rem 1.3rem;
     text-align: center;
-    transition: transform 0.45s cubic-bezier(0.4,0,0.2,1), box-shadow 0.45s cubic-bezier(0.4,0,0.2,1);
+    /* Rimosso effetto hover */
+    /* transition rimosso o mantenuto per fluidità senza hover */
+    transition: box-shadow 0.3s ease;
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -109,9 +111,17 @@
     position: relative;
     overflow: hidden;
   }
+  /* Togli effetto hover */
   .product:hover {
-    transform: translateY(-8px) scale(1.07);
-    box-shadow: 0 22px 50px rgba(0,0,0,0.12), inset 0 0 0 1px rgba(0,0,0,0.07);
+    transform: none;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.06), inset 0 0 0 1px rgba(0,0,0,0.05);
+  }
+  .product:hover::after {
+    right: 100%;
+    width: 0;
+  }
+  .product:hover img {
+    box-shadow: 0 12px 25px rgba(0,0,0,0.12);
   }
   .product::after {
     content: "";
@@ -124,19 +134,12 @@
     background: linear-gradient(to right, #008C45, #F4F5F0, #CD212A);
     transition: right 0.4s ease, width 0.4s ease;
   }
-  .product:hover::after {
-    right: 20px;
-    width: calc(100% - 40px);
-  }
   .product img {
     width: 100%;
     border-radius: 18px;
     margin-bottom: 1.2rem;
     box-shadow: 0 12px 25px rgba(0,0,0,0.12);
     transition: box-shadow 0.4s ease;
-  }
-  .product:hover img {
-    box-shadow: 0 22px 50px rgba(0,0,0,0.24);
   }
   .product h3 {
     font-weight: 700;
@@ -199,6 +202,37 @@
   .socials a:hover {
     transform: scale(1.45);
   }
+
+  /* Pulsanti di acquisto sotto ogni prodotto */
+  .buy-buttons {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .buy-buttons a {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.25s ease;
+    cursor: pointer;
+  }
+  .buy-buttons a img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: grayscale(60%);
+    transition: filter 0.3s ease;
+  }
+  .buy-buttons a:hover img {
+    filter: none;
+  }
+  .buy-buttons a:hover {
+    transform: scale(1.2);
+  }
+
   @media (max-width: 600px) {
     nav {
       gap: 1.6rem;
@@ -209,6 +243,11 @@
     .products-grid {
       grid-template-columns: 1fr;
       gap: 2rem;
+    }
+  }
+  @media (max-width: 480px) {
+    .buy-buttons {
+      gap: 0.8rem;
     }
   }
 </style>
@@ -230,26 +269,61 @@
   <h1>Catalogo Prodotti</h1>
 
   <section class="products-grid" aria-label="Lista prodotti in vendita">
+
     <article class="product" tabindex="0">
-      <img src="https://via.placeholder.com/340x220?text=MSI+GT710" alt="MSI GeForce GT710 2GB" />
+      <img src="https://images.sbito.it/api/v1/sbt-ads-images-pro/images/5f/5fc60ad1-5530-45db-b0b3-6c9c1befb18a?rule=gallery-desktop-2x-auto" alt="MSI GeForce GT710 2GB" />
       <h3>MSI GeForce GT710 2GB</h3>
       <p class="price">€39,99</p>
       <p class="description">Scheda grafica economica ideale per upgrade di PC base e applicazioni leggere.</p>
+      <div class="buy-buttons">
+        <a href="#" target="_blank" rel="noopener" aria-label="Acquista MSI su Vinted">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHeBXcXSaIbpJd0DMZ4kWSx_DvR40eDhsHfA&s" alt="Vinted" />
+        </a>
+        <a href="#" target="_blank" rel="noopener" aria-label="Acquista MSI su Subito">
+          <img src="https://play-lh.googleusercontent.com/uwzR5jlfHajawujhaPGz4qAUr5VrSYikAEiOVroFKnfFKlsoBU7BlAP7vLcrYy77U_M" alt="Subito" />
+        </a>
+        <a href="#" target="_blank" rel="noopener" aria-label="Acquista MSI su eBay">
+          <img src="https://www.salvatorepumo.it/wp-content/uploads/2023/02/logo-ebay-oggi.png" alt="eBay" />
+        </a>
+      </div>
     </article>
 
     <article class="product" tabindex="0">
-      <img src="https://via.placeholder.com/340x220?text=SSD+Lexar" alt="SSD Lexar 1TB" />
-      <h3>SSD Lexar 1TB</h3>
+      <img src="https://images.sbito.it/api/v1/sbt-ads-images-pro/images/29/293bea11-df57-42cf-af64-b3c7901ff774?rule=gallery-desktop-2x-auto" alt="Docking Station DELLWD22TB4 Thunderbolt4" />
+      <h3>Docking Station DELLWD22TB4 Thunderbolt4</h3>
       <p class="price">€49,90</p>
-      <p class="description">Unità a stato solido ad alta velocità per migliorare tempi di caricamento e affidabilità.</p>
+      <p class="description">Esempio temporaneo di desrizione prodotto.</p>
+      <div class="buy-buttons">
+        <a href="#" target="_blank" rel="noopener" aria-label="Acquista SSD Lexar su Vinted">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHeBXcXSaIbpJd0DMZ4kWSx_DvR40eDhsHfA&s" alt="Vinted" />
+        </a>
+        <a href="#" target="_blank" rel="noopener" aria-label="Acquista SSD Lexar su Subito">
+          <img src="https://play-lh.googleusercontent.com/uwzR5jlfHajawujhaPGz4qAUr5VrSYikAEiOVroFKnfFKlsoBU7BlAP7vLcrYy77U_M" alt="Subito" />
+        </a>
+        <a href="#" target="_blank" rel="noopener" aria-label="Acquista SSD Lexar su eBay">
+          <img src="https://www.salvatorepumo.it/wp-content/uploads/2023/02/logo-ebay-oggi.png" alt="eBay" />
+        </a>
+      </div>
     </article>
 
     <article class="product" tabindex="0">
-      <img src="https://via.placeholder.com/340x220?text=Alimentatore+Corsair" alt="Alimentatore Corsair 650W" />
-      <h3>Alimentatore Corsair 650W</h3>
+      <img src="https://images.sbito.it/api/v1/sbt-ads-images-pro/images/b0/b07ae025-9c3e-42c8-85ce-4722da241c2b?rule=gallery-desktop-2x-auto" alt="Alimentatore CoolMaster" />
+      <h3>Alimentatore Cooler Master RS-600-ACAB-M4</h3>
       <p class="price">€69,90</p>
-      <p class="description">Alimentatore efficiente con certificazione 80+ Bronze, ideale per sistemi gaming e workstation.</p>
+      <p class="description">Esempio temporaneo di desrizione prodotto.</p>
+      <div class="buy-buttons">
+        <a href="#" target="_blank" rel="noopener" aria-label="Acquista Alimentatore Corsair su Vinted">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHeBXcXSaIbpJd0DMZ4kWSx_DvR40eDhsHfA&s" alt="Vinted" />
+        </a>
+        <a href="#" target="_blank" rel="noopener" aria-label="Acquista Alimentatore Corsair su Subito">
+          <img src="https://play-lh.googleusercontent.com/uwzR5jlfHajawujhaPGz4qAUr5VrSYikAEiOVroFKnfFKlsoBU7BlAP7vLcrYy77U_M" alt="Subito" />
+        </a>
+        <a href="#" target="_blank" rel="noopener" aria-label="Acquista Alimentatore Corsair su eBay">
+          <img src="https://www.salvatorepumo.it/wp-content/uploads/2023/02/logo-ebay-oggi.png" alt="eBay" />
+        </a>
+      </div>
     </article>
+
   </section>
 </main>
 
