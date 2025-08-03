@@ -85,7 +85,7 @@
 
   <div class="feedback" id="feedback">Messaggio inviato con successo!</div>
 
-  <form id="contact-form">
+  <form id="contact-form" novalidate>
     <label for="name">Nome</label>
     <input type="text" id="name" name="name" required />
 
@@ -110,17 +110,16 @@
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const data = {
-      name: form.name.value,
-      email: form.email.value,
-      message: form.message.value
-    };
+    const formData = new URLSearchParams();
+    formData.append('name', form.name.value);
+    formData.append('email', form.email.value);
+    formData.append('message', form.message.value);
 
     try {
       const response = await fetch('https://hook.eu1.make.com/3vhnhysl1oxsq2bnwn78bym87jdo5z3l', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: formData.toString()
       });
 
       if (response.ok) {
