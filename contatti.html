@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contatti - Miniutti Store</title>
+<style>
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #f7f9fc;
+    color: #222;
+    margin: 0;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+  }
+  main {
+    background: #fff;
+    padding: 2rem 3rem;
+    border-radius: 16px;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.06);
+    max-width: 480px;
+    width: 100%;
+  }
+  h1 {
+    color: #1a2e47;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+  }
+  input, textarea {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border: 1.8px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    resize: vertical;
+  }
+  input:focus, textarea:focus {
+    border-color: #2a9d8f;
+    outline: none;
+    box-shadow: 0 0 8px rgba(42,157,143,0.3);
+  }
+  button {
+    background: #2a9d8f;
+    color: white;
+    font-weight: 700;
+    padding: 0.8rem 1.4rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background: #247a75;
+  }
+  .info {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #556877;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>Contatti Miniutti Store</h1>
+  <form method="POST" action="https://hook.eu1.make.com/3vhnhysl1oxsq2bnwn78bym87jdo5z3l">
+    <label for="name">Nome</label>
+    <input type="text" id="name" name="name" required />
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required />
+
+    <label for="message">Messaggio</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+
+    <button type="submit">Invia</button>
+  </form>
+  <div class="info">
+    <p>Puoi contattarci anche al numero <strong>3791128232</strong> o via email a <a href="mailto:info@miniutti.it">info@miniutti.it</a>.</p>
+  </div>
+</main>
+</body>
+</html>
