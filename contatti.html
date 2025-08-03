@@ -182,6 +182,51 @@
     color: #8d99ae;
     font-size: 0.95rem;
   }
+  footer p {
+    margin-bottom: 1rem;
+  }
+  .socials {
+    margin-top: 1.2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.4rem;
+  }
+  .socials a {
+    display: inline-block;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: transform 0.25s ease;
+  }
+  .socials a img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    display: block;
+    filter: grayscale(60%);
+    transition: filter 0.3s ease;
+  }
+  .socials a:hover img {
+    filter: none;
+  }
+  .socials a:hover {
+    transform: scale(1.45);
+  }
+  .footer-note {
+    margin-top: 3rem;
+    max-width: 920px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
+    text-align: left;
+    font-size: 0.85rem;
+    color: #6c757d;
+    line-height: 1.6;
+    user-select: text;
+  }
+  .footer-note a {
+    color: #6c757d;
+    text-decoration: underline;
+  }
 
   /* Responsive */
   @media (max-width: 600px) {
@@ -240,28 +285,27 @@
 
 <footer>
   <p>© 2025 Miniutti.it — Tutti i diritti riservati</p>
-  <div class="socials" role="contentinfo" aria-label="Link ai social di vendita" style="margin-top: 1.2rem; display: flex; justify-content: center; gap: 1.4rem;">
-    <a href="https://www.vinted.it/member/227244406" target="_blank" rel="noopener" aria-label="Vinted" style="display: inline-block; border-radius: 14px; overflow: hidden; transition: transform 0.25s ease;">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHeBXcXSaIbpJd0DMZ4kWSx_DvR40eDhsHfA&s" alt="Icona Vinted" style="width: 32px; height: 32px; object-fit: contain; display: block; filter: grayscale(60%); transition: filter 0.3s ease;" />
+  <div class="socials" role="contentinfo" aria-label="Link ai social di vendita">
+    <a href="https://www.vinted.it/member/227244406" target="_blank" rel="noopener" aria-label="Vinted">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHeBXcXSaIbpJd0DMZ4kWSx_DvR40eDhsHfA&s" alt="Icona Vinted" />
     </a>
-    <a href="https://www.subito.it/utente/127182597" target="_blank" rel="noopener" aria-label="Subito" style="display: inline-block; border-radius: 14px; overflow: hidden; transition: transform 0.25s ease;">
-      <img src="https://play-lh.googleusercontent.com/uwzR5jlfHajawujhaPGz4qAUr5VrSYikAEiOVroFKnfFKlsoBU7BlAP7vLcrYy77U_M" alt="Icona Subito" style="width: 32px; height: 32px; object-fit: contain; display: block; filter: grayscale(60%); transition: filter 0.3s ease;" />
+    <a href="https://www.subito.it/utente/127182597" target="_blank" rel="noopener" aria-label="Subito">
+      <img src="https://play-lh.googleusercontent.com/uwzR5jlfHajawujhaPGz4qAUr5VrSYikAEiOVroFKnfFKlsoBU7BlAP7vLcrYy77U_M" alt="Icona Subito" />
     </a>
-    <a href="https://www.ebay.it/usr/tuo_utente" target="_blank" rel="noopener" aria-label="eBay" style="display: inline-block; border-radius: 14px; overflow: hidden; transition: transform 0.25s ease;">
-      <img src="https://www.salvatorepumo.it/wp-content/uploads/2023/02/logo-ebay-oggi.png" alt="Icona eBay" style="width: 32px; height: 32px; object-fit: contain; display: block; filter: grayscale(60%); transition: filter 0.3s ease;" />
+    <a href="https://www.ebay.it/usr/tuo_utente" target="_blank" rel="noopener" aria-label="eBay">
+      <img src="https://www.salvatorepumo.it/wp-content/uploads/2023/02/logo-ebay-oggi.png" alt="Icona eBay" />
     </a>
   </div>
 
-  <div style="margin-top: 3rem; max-width: 920px; margin-left: auto; margin-right: auto; padding: 1rem; text-align: left; font-size: 0.85rem; color: #6c757d; line-height: 1.6;">
+  <div class="footer-note">
     <strong>Attenzione:</strong> Questo sito web non rappresenta un’attività commerciale, né un negozio professionale. I prodotti visualizzati provengono da scorte personali, doppioni o oggetti inutilizzati e sono venduti occasionalmente su piattaforme terze come <em>Vinted</em>, <em>Subito.it</em> o <em>eBay</em>. L'acquisto non avviene direttamente su questo sito, il quale ha esclusivamente funzione di vetrina/catalogo.<br><br>
-    Se desideri documentazione fiscale, dovrai richiederla direttamente tramite i canali ufficiali delle piattaforme di vendita.
+    Se desideri documentazione fiscale, dovrai richiederla direttamente tramite i canali ufficiali delle piattaforme di vendita.<br>
     Il sito non rappresenta un’attività commerciale, non ha partita IVA e non è un negozio professionale.<br>
     Store.miniutti.it non è affiliato né sponsorizzato da alcun marchio presente nei prodotti, le immagini e i loghi appartengono ai rispettivi proprietari e sono utilizzati unicamente a scopo descrittivo secondo l’art. 21 Codice della Proprietà Industriale.<br><br>
     Eventuali problemi relativi a pagamenti, spedizioni o reclami devono essere gestiti esclusivamente tramite le piattaforme esterne dove avviene la compravendita.<br>
     Per ulteriori informazioni o assistenza, puoi contattare direttamente l’utente tramite il <a href="contatti.html">modulo contatti</a> sul sito, oppure via telefono al <a href="tel:+393791128232">379 112 8232</a> o via email all’indirizzo <a href="mailto:info@miniutti.it">info@miniutti.it</a>.
   </div>
 </footer>
-
 
 <script>
   const form = document.getElementById('contact-form');
@@ -270,11 +314,23 @@
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
+    // Pulisce feedback da eventuali messaggi precedenti
+    feedback.style.display = 'none';
+    feedback.textContent = '';
+    feedback.className = 'feedback';
+
     const data = {
       name: form.name.value.trim(),
       email: form.email.value.trim(),
       message: form.message.value.trim()
     };
+
+    if (!data.name || !data.email || !data.message) {
+      feedback.textContent = "Per favore compila tutti i campi.";
+      feedback.classList.add('error');
+      feedback.style.display = 'block';
+      return;
+    }
 
     try {
       const response = await fetch('https://hook.eu1.make.com/3vhnhysl1oxsq2bnwn78bym87jdo5z3l', {
@@ -285,18 +341,19 @@
 
       if (response.ok) {
         feedback.textContent = "Messaggio inviato con successo! Grazie per averci contattato.";
-        feedback.className = "feedback success";
+        feedback.classList.add('success');
+        form.reset();
         form.style.display = 'none';
       } else {
         feedback.textContent = "Errore nell'invio. Riprova più tardi.";
-        feedback.className = "feedback error";
+        feedback.classList.add('error');
       }
-      feedback.style.display = 'block';
     } catch (error) {
       feedback.textContent = "Errore di connessione. Controlla la tua rete.";
-      feedback.className = "feedback error";
-      feedback.style.display = 'block';
+      feedback.classList.add('error');
     }
+
+    feedback.style.display = 'block';
   });
 </script>
 
