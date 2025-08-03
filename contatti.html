@@ -4,85 +4,221 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Contatti - Miniutti Store</title>
+
+<!-- Favicon -->
+<link rel="icon" href="favicon.png" type="image/png" />
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
 <style>
-  body {
+  /* Reset e font */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
     font-family: 'Inter', sans-serif;
+  }
+
+  body {
     background: #f7f9fc;
     color: #222;
-    margin: 0;
-    padding: 2rem;
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
   }
-  main {
-    background: #fff;
-    padding: 2rem 3rem;
-    border-radius: 16px;
-    box-shadow: 0 16px 40px rgba(0,0,0,0.06);
-    max-width: 480px;
+
+  /* HEADER */
+  header {
+    position: sticky;
+    top: 0;
+    background: rgba(255 255 255 / 0.98);
+    backdrop-filter: saturate(180%) blur(10px);
+    box-shadow: 0 3px 15px rgb(0 0 0 / 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    z-index: 100;
+  }
+  header a.logo-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  header a.logo-link img {
+    height: 48px;
+    border-radius: 14px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  header a.logo-link img:hover {
+    transform: scale(1.08);
+  }
+  nav {
+    display: flex;
+    gap: 2.8rem;
+  }
+  nav a {
+    text-decoration: none;
+    color: #334e68;
+    font-weight: 600;
+    font-size: 1.1rem;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.35s ease;
+    cursor: pointer;
+  }
+  nav a:hover {
+    color: #1d3557;
+  }
+  nav a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 100%;
+    width: 0;
+    height: 4px;
+    border-radius: 12px;
+    background: linear-gradient(to right, #008C45, #F4F5F0, #CD212A);
+    transition: right 0.35s ease, width 0.35s ease;
+  }
+  nav a:hover::after {
+    right: 0;
     width: 100%;
   }
-  h1 {
+
+  /* MAIN CONTENUTO */
+  main {
+    max-width: 700px;
+    margin: 3rem auto 4rem auto;
+    background: #fff;
+    padding: 2.5rem 3rem;
+    border-radius: 28px;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.06);
+  }
+  main h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
     color: #1a2e47;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     text-align: center;
   }
+
   label {
     display: block;
-    margin-bottom: 0.4rem;
     font-weight: 600;
+    margin-bottom: 0.6rem;
+    color: #264653;
   }
   input, textarea {
     width: 100%;
-    padding: 0.6rem 0.8rem;
-    border: 1.8px solid #ccc;
-    border-radius: 8px;
+    padding: 0.75rem 1rem;
     font-size: 1rem;
-    margin-bottom: 1.5rem;
+    border: 1.5px solid #ccc;
+    border-radius: 16px;
+    margin-bottom: 1.8rem;
     resize: vertical;
+    transition: border-color 0.3s ease;
   }
   input:focus, textarea:focus {
-    border-color: #2a9d8f;
     outline: none;
+    border-color: #2a9d8f;
     box-shadow: 0 0 8px rgba(42,157,143,0.3);
   }
   button {
+    width: 100%;
     background: #2a9d8f;
+    border: none;
     color: white;
     font-weight: 700;
-    padding: 0.8rem 1.4rem;
-    border: none;
-    border-radius: 12px;
+    font-size: 1.25rem;
+    padding: 1rem 0;
+    border-radius: 24px;
     cursor: pointer;
-    width: 100%;
-    font-size: 1.1rem;
     transition: background-color 0.3s ease;
   }
   button:hover {
     background: #247a75;
   }
-  .info {
-    margin-top: 1rem;
-    font-size: 0.9rem;
-    color: #556877;
-    text-align: center;
-  }
   .feedback {
     display: none;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.8rem;
+    border-radius: 16px;
     text-align: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  .feedback.success {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+  }
+  .feedback.error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+  }
+  .info {
+    font-size: 1rem;
+    color: #556877;
+    text-align: center;
+    margin-top: 1rem;
+  }
+  .info a {
+    color: #2a9d8f;
+    text-decoration: none;
     font-weight: 600;
-    border: 1px solid transparent;
+  }
+  .info a:hover {
+    text-decoration: underline;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #fefefe;
+    box-shadow: inset 0 1px 0 0 #ddd;
+    padding: 2.8rem 1rem 3rem 1rem;
+    text-align: center;
+    margin-top: auto;
+    user-select: none;
+    color: #8d99ae;
+    font-size: 0.95rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    nav {
+      gap: 1.6rem;
+    }
+    main {
+      margin: 2rem 1rem 3rem 1rem;
+      padding: 2rem 1.5rem;
+    }
+    main h1 {
+      font-size: 2rem;
+    }
+    button {
+      font-size: 1.1rem;
+      padding: 0.8rem 0;
+    }
   }
 </style>
 </head>
 <body>
+
+<header>
+  <a href="https://store.miniutti.it" class="logo-link" aria-label="Miniutti Store">
+    <img src="favicon.png" alt="Miniutti Store Logo" />
+  </a>
+  <nav>
+    <a href="https://store.miniutti.it" tabindex="0">Home</a>
+    <a href="https://store.miniutti.it/prodotti.html" tabindex="0">Prodotti</a>
+    <a href="https://store.miniutti.it/contatti.html" tabindex="0" aria-current="page">Contatti</a>
+  </nav>
+</header>
+
 <main>
   <h1>Contatti Miniutti Store</h1>
 
-  <div class="feedback" id="feedback"></div>
+  <div id="feedback" class="feedback"></div>
 
   <form id="contact-form" novalidate>
     <label for="name">Nome</label>
@@ -101,6 +237,10 @@
     <p>Puoi contattarci anche al numero <strong>3791128232</strong> o via email a <a href="mailto:info@miniutti.it">info@miniutti.it</a>.</p>
   </div>
 </main>
+
+<footer>
+  © 2025 Miniutti Store — Tutti i diritti riservati
+</footer>
 
 <script>
   const form = document.getElementById('contact-form');
@@ -124,26 +264,20 @@
 
       if (response.ok) {
         feedback.textContent = "Messaggio inviato con successo! Grazie per averci contattato.";
-        feedback.style.display = 'block';
-        feedback.style.color = "#155724";
-        feedback.style.backgroundColor = "#d4edda";
-        feedback.style.borderColor = "#c3e6cb";
+        feedback.className = "feedback success";
         form.style.display = 'none';
       } else {
         feedback.textContent = "Errore nell'invio. Riprova più tardi.";
-        feedback.style.display = 'block';
-        feedback.style.color = "#721c24";
-        feedback.style.backgroundColor = "#f8d7da";
-        feedback.style.borderColor = "#f5c6cb";
+        feedback.className = "feedback error";
       }
+      feedback.style.display = 'block';
     } catch (error) {
       feedback.textContent = "Errore di connessione. Controlla la tua rete.";
+      feedback.className = "feedback error";
       feedback.style.display = 'block';
-      feedback.style.color = "#721c24";
-      feedback.style.backgroundColor = "#f8d7da";
-      feedback.style.borderColor = "#f5c6cb";
     }
   });
 </script>
+
 </body>
 </html>
