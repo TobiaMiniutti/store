@@ -68,14 +68,13 @@
     text-align: center;
   }
   .feedback {
-    background: #d4edda;
-    border: 1px solid #c3e6cb;
+    display: none;
     padding: 1rem;
     margin-bottom: 1rem;
-    color: #155724;
     border-radius: 8px;
-    display: none;
     text-align: center;
+    font-weight: 600;
+    border: 1px solid transparent;
   }
 </style>
 </head>
@@ -83,7 +82,7 @@
 <main>
   <h1>Contatti Miniutti Store</h1>
 
-  <div class="feedback" id="feedback">Messaggio inviato con successo!</div>
+  <div class="feedback" id="feedback"></div>
 
   <form id="contact-form" novalidate>
     <label for="name">Nome</label>
@@ -124,13 +123,25 @@
       });
 
       if (response.ok) {
+        feedback.textContent = "Messaggio inviato con successo! Grazie per averci contattato.";
         feedback.style.display = 'block';
-        form.reset();
+        feedback.style.color = "#155724";
+        feedback.style.backgroundColor = "#d4edda";
+        feedback.style.borderColor = "#c3e6cb";
+        form.style.display = 'none';
       } else {
-        alert('Errore nell\'invio. Riprova più tardi.');
+        feedback.textContent = "Errore nell'invio. Riprova più tardi.";
+        feedback.style.display = 'block';
+        feedback.style.color = "#721c24";
+        feedback.style.backgroundColor = "#f8d7da";
+        feedback.style.borderColor = "#f5c6cb";
       }
     } catch (error) {
-      alert('Errore di connessione. Controlla la tua rete.');
+      feedback.textContent = "Errore di connessione. Controlla la tua rete.";
+      feedback.style.display = 'block';
+      feedback.style.color = "#721c24";
+      feedback.style.backgroundColor = "#f8d7da";
+      feedback.style.borderColor = "#f5c6cb";
     }
   });
 </script>
