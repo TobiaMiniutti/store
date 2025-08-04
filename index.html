@@ -262,6 +262,16 @@
 </head>
 <body>
 
+  <script>
+  const userLang = navigator.language || navigator.userLanguage;
+  const isRoot = location.pathname === "/" || location.pathname === "/index.html";
+
+  if (isRoot && userLang.startsWith("en")) {
+    window.location.href = "/index-en.html";
+  }
+</script>
+
+
 <header>
   <a href="https://store.miniutti.it" class="logo-link" aria-label="Miniutti Store">
     <img src="favicon.png" alt="Miniutti Store Logo" />
@@ -271,7 +281,43 @@
     <a href="https://store.miniutti.it/prodotti.html" tabindex="0">Prodotti</a>
     <a href="https://store.miniutti.it/contatti.html" tabindex="0">Contatti</a>
   </nav>
+  <div class="lang-switcher" role="navigation" aria-label="Cambia lingua">
+  <a href="/" lang="it" aria-label="Italiano" class="active">IT</a>
+  <span>/</span>
+  <a href="/index-en.html" lang="en" aria-label="English">EN</a>
+</div>
+
 </header>
+  .lang-switcher {
+  position: absolute;
+  top: 1.2rem;
+  right: 2rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #334e68;
+  user-select: none;
+}
+
+.lang-switcher a {
+  text-decoration: none;
+  color: #334e68;
+  transition: color 0.3s ease;
+}
+
+.lang-switcher a:hover {
+  color: #1d3557;
+}
+
+.lang-switcher .active {
+  color: #1d3557;
+  text-decoration: underline;
+}
+
+.lang-switcher span {
+  margin: 0 0.4rem;
+  color: #aaa;
+}
+
 
 <section class="hero" role="banner">
   <h1>Benvenuto</h1>
@@ -297,6 +343,13 @@ Tutti i prodotti sono descritti nel dettaglio e le vendite avvengono esclusivame
     <p id="desc-prod3">CLICCA QUI</p>
   </a>
 </section>
+<script>
+  const userLang = navigator.language || navigator.userLanguage;
+  const isRoot = location.pathname === "/" || location.pathname === "/index.html";
+  if (isRoot && userLang.startsWith("en")) {
+    window.location.href = "/index-en.html";
+  }
+</script>
 
 <footer>
   <p>© 2025 Miniutti.it — Tutti i diritti riservati</p>
