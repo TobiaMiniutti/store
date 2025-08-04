@@ -54,32 +54,6 @@
   header a.logo-link img:hover {
     transform: scale(1.08);
   }
-.lang-dropdown {
-  position: absolute;
-  top: 1rem;
-  right: 2rem;
-  font-family: inherit;
-  font-weight: 600;
-  z-index: 999;
-}
-
-.lang-dropdown select {
-  padding: 0.35rem 0.6rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  font-size: 0.95rem;
-  cursor: pointer;
-  appearance: none;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg width='10' height='6' viewBox='0 0 10 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23000' stroke-width='1.5' fill='none' fill-rule='evenodd'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 0.6rem center;
-  background-size: 10px;
-}
-
-.lang-dropdown option {
-  font-size: 1rem;
-}
 
   nav {
     display: flex;
@@ -298,12 +272,6 @@
     <a href="https://store.miniutti.it/contatti.html" tabindex="0">Contatti</a>
   </nav>
 </header>
-<div class="lang-dropdown">
-  <select onchange="switchLang(this)">
-    <option value="/index.html" selected>🇮🇹 Italiano</option>
-    <option value="/index-en.html">🇬🇧 English</option>
-  </select>
-</div>
 
 <section class="hero" role="banner">
   <h1>Benvenuto</h1>
@@ -353,16 +321,6 @@ Tutti i prodotti sono descritti nel dettaglio e le vendite avvengono esclusivame
     Per ulteriori informazioni o assistenza, puoi contattare direttamente l’utente tramite il <a href="contatti.html">modulo contatti</a> sul sito, oppure via telefono al <a href="tel:+393791128232">379 112 8232</a> o via email all’indirizzo <a href="mailto:info@miniutti.it">info@miniutti.it</a>.
   </div>
 </footer>
-<script>
-  function switchLang(select) {
-    window.location.href = select.value;
-  }
-
-  // Se sei su /index-en.html, seleziona automaticamente English
-  if (window.location.pathname.includes('index-en')) {
-    document.querySelector('.lang-dropdown select').value = '/index-en.html';
-  }
-</script>
 
 </body>
 </html>
